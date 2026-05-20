@@ -1,0 +1,55 @@
+; Zedin Mega - Python'dan Daha Güçlü!
+
+DATA 7000 0
+DATA 7001 7002
+DATA 100 "Zedin_Mega_Sistemi_Baslatildi..."
+DATA 200 "https://api.github.com"
+DATA 300 "Agdan_veri_cekiliyor..."
+
+@BASLA
+    ; 1. Bilgi Mesajı
+    YUKLE #100
+    INT #22
+    YUKLE #10
+    INT #20
+
+    ; 2. Dinamik Liste Testi
+    CALL $LISTE_OLUSTUR
+    SAKLA_CEBI #5000
+    
+    LISTE_EKLE #5000 #10
+    LISTE_EKLE #5000 #20
+    LISTE_EKLE #5000 #30
+    
+    ; 3. Grafik Testi
+    GRAFIK_CIZ #50 #50
+    GRAFIK_CIZ #100 #100
+
+    ; 4. Ağ Testi
+    YUKLE #300
+    INT #22
+    YUKLE #10
+    INT #20
+    YUKLE #200
+    CALL $WEB_GETIR
+
+    BITIR
+
+@YER_AYIR
+    PUSH CEB
+    GETIR #7001
+    SAKLA_CEBI #7005
+    POP
+    TOPLA #7001
+    SAKLA_CEBI #7001
+    GETIR #7005
+    RET
+
+@LISTE_OLUSTUR
+    YUKLE #100
+    CALL $YER_AYIR
+    RET
+
+@WEB_GETIR
+    AG_ISTEK CEB
+    RET

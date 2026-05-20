@@ -1,0 +1,26 @@
+; Zedin Türkçe Paket Yönetimi Testi
+DATA 100 "curl"
+DATA 200 "Paket listeleri güncelleniyor..."
+DATA 300 "Paket yükleniyor: curl"
+
+@BASLA
+    ; Bilgi mesajı
+    YUKLE #200
+    INT #22
+    YUKLE #10
+    INT #20
+
+    ; Paket listelerini güncelle
+    PAKET_GUNCELLE
+
+    ; Bilgi mesajı
+    YUKLE #300
+    INT #22
+    YUKLE #10
+    INT #20
+
+    ; curl paketini yükle
+    YUKLE #100
+    PAKET_YUKLE #100
+
+    BITIR

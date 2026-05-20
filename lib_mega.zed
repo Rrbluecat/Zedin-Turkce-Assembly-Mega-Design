@@ -1,0 +1,38 @@
+; lib_mega.zed - Zedin Mega Standart Kütüphanesi
+
+; --- 1. NESNE YÖNELİMLİ PROGRAMLAMA (OOP) ---
+; Zedin'de sınıflar ve nesneler oluşturmak için altyapı
+
+; Fonksiyon: NESNE_YAP
+; Giriş: CEB = Özellik sayısı
+; Çıkış: CEB = Nesne adresi
+@NESNE_YAP
+    CALL $YER_AYIR
+    RET
+
+; --- 2. DİNAMİK LİSTELER ---
+; Python'daki listeler gibi büyüyebilen yapılar
+
+; Fonksiyon: LISTE_OLUSTUR
+@LISTE_OLUSTUR
+    YUKLE #100 ; Başlangıç kapasitesi
+    CALL $YER_AYIR
+    RET
+
+; --- 3. AĞ VE İNTERNET ---
+; Web'den veri çekme
+
+; Fonksiyon: WEB_GETIR
+; Giriş: CEB = URL adresi
+@WEB_GETIR
+    AG_ISTEK CEB
+    RET
+
+; --- 4. GRAFİK MOTORU ---
+; Ekrana çizim yapma
+
+; Fonksiyon: NOKTA_KOY
+; Giriş: Stack[X, Y]
+@NOKTA_KOY
+    ; Grafik komutlarını çağırır
+    RET

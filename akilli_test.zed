@@ -1,0 +1,34 @@
+; Zedin Akilli Katman Testi
+
+DATA 7000 0
+DATA 7001 7002
+DATA 500 "Akilli_Bellek_Testi"
+
+@BASLA
+    ; String yazdırma
+    YUKLE #500
+    INT #22
+    YUKLE #10
+    INT #20
+
+    YUKLE #5
+    CALL $YER_AYIR
+    SAKLA #42 CEB
+    
+    ; Ayrılan adresteki değeri oku ve yazdır
+    GETIR CEB
+    INT #23
+    YUKLE #10
+    INT #20
+    
+    BITIR
+
+@YER_AYIR
+    PUSH CEB
+    GETIR #7001
+    SAKLA_CEBI #7005
+    POP
+    TOPLA #7001
+    SAKLA_CEBI #7001
+    GETIR #7005
+    RET

@@ -1,0 +1,27 @@
+; lib_paket.zed - Türkçe Paket Yönetimi Kütüphanesi
+
+; Fonksiyon: PAKET_GUNCELLE
+; Açıklama: Paket listelerini günceller (sudo apt update)
+@PAKET_GUNCELLE
+    PAKET_GUNCELLE
+    RET
+
+; Fonksiyon: PAKET_YUKLE
+; Açıklama: Belirtilen paketi yükler (sudo apt install [paket_adi])
+; Parametre: CEB'de paket adının RAM adresi olmalı
+@PAKET_YUKLE
+    PAKET_YUKLE #0 ; CEB'deki değeri kullanacak
+    RET
+
+; Fonksiyon: PAKET_KALDIR
+; Açıklama: Belirtilen paketi kaldırır (sudo apt remove [paket_adi])
+; Parametre: CEB'de paket adının RAM adresi olmalı
+@PAKET_KALDIR
+    PAKET_KALDIR #0 ; CEB'deki değeri kullanacak
+    RET
+
+; Fonksiyon: PAKET_YUKSELT
+; Açıklama: Yüklü tüm paketleri yükseltir (sudo apt upgrade -y)
+@PAKET_YUKSELT
+    PAKET_YUKSELT
+    RET

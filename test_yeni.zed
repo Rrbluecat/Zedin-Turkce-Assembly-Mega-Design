@@ -1,0 +1,30 @@
+; Zedin Yeni Özellikler Testi
+DATA 100 "Merhaba_Zedin_Gucu"
+DATA 200 "ls -la"
+
+@BASLA
+    ; String yazdırma testi
+    YUKLE #100
+    INT #22
+    YUKLE #10 ; Yeni satır
+    INT #20
+
+    ; Mantıksal XOR testi
+    YUKLE #10
+    XOR #15 ; 10 ^ 15 = 5
+    INT #23
+    YUKLE #10
+    INT #20
+
+    ; Kaydırma testi
+    YUKLE #1
+    SOLA_KAYDIR #3 ; 1 << 3 = 8
+    INT #23
+    YUKLE #10
+    INT #20
+
+    ; Sistem komutu testi (ls -la)
+    YUKLE #200
+    INT #70
+
+    BITIR

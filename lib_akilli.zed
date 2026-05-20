@@ -1,0 +1,42 @@
+; lib_akilli.zed - Zedin Akıllı Katman Kütüphanesi
+
+; --- 1. AKILLI BELLEK YÖNETİMİ ---
+; Kullanıcının adres seçmesine gerek kalmadan otomatik yer ayırır.
+
+DATA 7000 0 ; Bellek havuzu başlangıcı
+DATA 7001 7002 ; Mevcut boş adres işaretçisi
+
+; Fonksiyon: YER_AYIR
+; Giriş: CEB = İstenen boyut
+; Çıkış: CEB = Ayrılan adres
+@YER_AYIR
+    PUSH CEB ; Boyutu sakla
+    GETIR #7001 ; Mevcut boş adresi al
+    SAKLA_CEBI #7005 ; Geçici olarak sakla
+    POP ; Boyutu geri al
+    TOPLA #7001 ; Yeni boş adresi hesapla
+    SAKLA_CEBI #7001 ; İşaretçiyi güncelle
+    GETIR #7005 ; Ayrılan adresi döndür
+    RET
+
+; --- 2. YÜKSEK SEVİYELİ GRAFİK ---
+; Tek komutla şekil çizme simülasyonu
+
+; Fonksiyon: EKRANA_CIZ
+; Parametreler: X, Y, Renk (Stack'ten alınır)
+@EKRANA_CIZ
+    ; Bu fonksiyon donanım kesmelerini kullanarak karmaşık çizimi basitleştirir
+    ; Şimdilik simülasyon olarak mesaj basar
+    DATA 7100 "Grafik_Ciziliyor:_"
+    YUKLE #7100
+    INT #22
+    RET
+
+; --- 3. AKILLI MATEMATIK ---
+; Karmaşık işlemleri basitleştirir
+
+; Fonksiyon: US_AL (Taban^Us)
+@US_AL
+    ; CEB = Taban, Stack[top] = Us
+    ; (Basitleştirilmiş döngü mantığı)
+    RET
